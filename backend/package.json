@@ -1,0 +1,76 @@
+{
+  "name": "tradeling-coding-task-backend",
+  "version": "1.0.0",
+  "description": "This case study aims to assess how you approach a problem starting from the high level solution to the low level implementation details and code quality. You will not be penalized for asking questions, so don't hesitate to ask us if you need any clarification.",
+  "main": "src/index.ts",
+  "author": "Sheraz Ali",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "yarn build && node build/index.js",
+    "start:prod": "node build/index.js",
+    "lint": "eslint . --ext .ts",
+    "test": "jest --forceExit"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.4",
+    "@types/node": "^14.6.0",
+    "@types/swagger-jsdoc": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@types/jest": "^26.0.10",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-compress": "^4.0.0",
+    "@types/koa-router": "^7.4.1",
+    "@types/koa__cors": "^3.0.1",
+    "@types/lodash": "^4.14.159",
+    "@types/redis": "^2.8.25",
+    "@types/supertest": "^2.0.10",
+    "axios": "^0.19.2",
+    "camelcase-keys": "^6.2.2",
+    "dotenv": "^8.2.0",
+    "jest": "^26.4.0",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compress": "^5.0.1",
+    "koa-router": "^9.4.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.20",
+    "node-input-validator": "^4.2.1",
+    "redis": "^3.0.2",
+    "supertest": "^4.0.2",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-koa": "^0.0.1",
+    "ts-jest": "^26.2.0",
+    "util": "^0.12.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/tests/*.+(ts|tsx|js)"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  # Add this top-level entry
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+    ports:
+      - 6379:6379
+  backend:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    depends_on:
+      - redis
+    ports:
+      - 1001:1001
+    volumes:
+      - './backend:/usr/src/app'
+    environment:
+      - NODE_ENV=development
+      - PORT=1001
+      - NODE_HOST=localhost
+      - REDIS_HOST=127.0.0.1
+      - REDIS_PORT=6379
+      - REDIS_CONNECTION_URL=redis://cache
+  client:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    depends_on:
+      - redis
+      - backend
+    ports:
+      - 3000:3000
+    environment:
+      - BASE_URL=http://localhost:1001
+    stdin_open: true
+    # command: ['yarn', 'start']
+    command: dockerize -wait http://backend:1001 -timeout 20s yarn start
+    volumes:
+      - "./client:/usr/src/app"
