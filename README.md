@@ -1,10 +1,13 @@
 # Search github users, repositories or issues. And Cache in redis temporarily
 
-### Requirements
+### Stack
 
 * **Node** => 12.16.3
 * **React** 16.13.1 or later.
 * **Docker** 19.03.8.
+* **Docker Compose**
+* **Swagger**
+* **Redis Docker Image**
 
 
 ### Installation
