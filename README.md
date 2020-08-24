@@ -8,6 +8,9 @@
 * **Docker Compose**
 * **Swagger**
 * **Redis Docker Image**
+* **Typescript** 3.9.7
+* **Linting/Prettier**
+* **Supertest/jest**
 
 
 ### Installation
